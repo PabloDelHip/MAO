@@ -1,0 +1,849 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+$dorado: #d6b467;
+$salmon: #ad8079;
+$dorado_opciones: #786a53;
+$gris: #575756;
+$azul-marino: #1f2845;
+/////////MIXIN/////////////////
+@mixin fondo-imagen($url: '',
+$tipo) {
+    background: url($url) no-repeat center center + $tipo;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+////////////////////////////////
+body {
+    font-family: 'Lato', sans-serif !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+h3.titulo,
+h3.titulo-contacto {
+    color: $salmon;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    &:before {
+        content: "";
+        background-color: $salmon;
+        height: 2px;
+        width: 80px;
+        color: blue;
+        display: block;
+        margin: 40px auto;
+    }
+}
+
+h4.titulo-delgado {
+    color: $gris;
+    font-size: 1.8em;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-left: 30px;
+    span {
+        color: $azul-marino;
+        font-weight: 500;
+    }
+    &:before {
+        content: "";
+        background-color: $salmon;
+        height: 2px;
+        width: 80px;
+        color: blue;
+        display: block;
+        margin: 60px 0 40px;
+    }
+}
+
+.menu {
+    background: url('assets/images/fondo-menu.png');
+    border-right: solid 8px $dorado;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 20%;
+    height: 100vh;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    float: left;
+    z-index: 100;
+    transition: all .7s ease;
+    -moz-transition: all .7s ease;
+    -webkit-transition: all .7s ease;
+    overflow: auto;
+    .logo-menu {
+        width: 100%;
+        max-width: 220px;
+    }
+    .idiomas a {
+        color: $dorado;
+    }
+    .idiomas.espanol {
+        border-right: 1px solid $dorado;
+    }
+    .idiomas.ingles {
+        border-left: 1px solid $dorado;
+    }
+    .opciones {
+        z-index: 100;
+        position: relative;
+        ul {
+            color: #fff;
+            list-style: none;
+            li {
+                border-bottom: 1px solid $dorado_opciones;
+                transition: all .7s ease;
+                margin-bottom: 30px;
+                &:first-child {
+                    margin-top: 50px;
+                }
+                a.active {
+                    color: $dorado;
+                }
+            }
+            li a {
+                color: $dorado_opciones;
+                transition: all .7s ease;
+            }
+            li:hover {
+                border-bottom: 1px solid $dorado;
+            }
+            li:hover a {
+                color: $dorado !important;
+            }
+        }
+    }
+}
+
+.contenedor-brochure {
+    margin-top: 40px;
+    font-size: 1.1em;
+    z-index: 100;
+    position: relative;
+    div {
+        a {
+            color: $dorado;
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            &:first-child {
+                margin-bottom: 20px;
+            }
+            &:after {
+                content: "";
+                display: block;
+                margin: auto;
+                height: 2px;
+                width: 0px;
+                transition: all .8s;
+            }
+            &:hover:after {
+                width: 100%;
+                background: $dorado;
+            }
+        }
+    }
+}
+
+div.boton-avance-obra {
+    position: relative;
+    z-index: 100;
+    a {
+        color: $dorado;
+        border: 1px solid $dorado;
+        font-size: .9em;
+        padding: 5px;
+        margin-top: 45px;
+        display: inline-block;
+        position: relative;
+        text-decoration: none;
+        transition: all .5s ease;
+        transform-style: preserve-3d;
+        &:after {
+            content: "AVANCE DE OBRA";
+            position: absolute;
+            top: -100%;
+            left: 0px;
+            width: 100%;
+            background: $dorado;
+            transform-origin: left bottom;
+            transform: rotateX(90deg);
+            padding: 5px;
+            color: #fff;
+        }
+        &:hover {
+            transform-origin: center bottom;
+            transform: rotateX(-90deg) translateY(100%);
+        }
+    }
+}
+
+.contenedor {
+    height: 100%;
+    position: relative;
+    transition: all 700ms ease 0s;
+    top: 0;
+    width: 80%;
+    left: 20%;
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: all .7s ease;
+    -moz-transition: all .7s ease;
+    -webkit-transition: all .7s ease;
+}
+
+.lineas-menu {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 1;
+    img {
+        z-index: 1;
+        width: 100%;
+    }
+}
+
+.imagenes-plantas {
+    img {
+        cursor: pointer;
+    }
+}
+
+.footer {
+    background: url('assets/images/fondo-footer.png');
+    position: relative;
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: normal;
+    padding: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: all .7s ease;
+    -moz-transition: all .7s ease;
+    -webkit-transition: all .7s ease;
+    -o-transition: all .7s ease;
+    .datos {
+        color: $dorado;
+    }
+}
+
+.copy {
+    background-color: #000;
+    color: $dorado;
+    width: 100%;
+    a {
+        color: $dorado;
+    }
+}
+
+.hero-quienes-somos {
+    @include fondo-imagen('assets/images/hero-quienes-somos.png',
+    ' fixed');
+    width: 100%;
+    height: 100vh;
+}
+
+.textos p {
+    color: $gris;
+    span,
+    b {
+        color: $azul-marino;
+        font-weight: 700;
+    }
+}
+
+.textos ul {
+    color: $gris;
+}
+
+ul.lista-image {
+    list-style-image: url("assets/images/rombo.png");
+}
+
+.texto-departamentos {
+    height: 670px;
+}
+
+.fondo-dos-quienes-somos {
+    @include fondo-imagen('assets/images/fondo-niñas-jugando.png',
+    '');
+}
+
+.fondo-lineas-amarillas {
+    @include fondo-imagen('assets/images/lineas-amarillas.png',
+    '');
+    height: 130px;
+}
+
+.hero-amenidades {
+    @include fondo-imagen('assets/images/hero-amenidades.jpg',
+    ' fixed');
+    width: 100%;
+    height: 100vh;
+}
+
+.texto-amenidades,
+.texto-departamentos,
+.texto-ubicacion {
+    h3 {
+        &:before {
+            margin: 30px 0;
+        }
+    }
+}
+
+.titulo-contacto {
+    color: $dorado !important;
+    &:before {
+        margin: 30px 0 !important;
+        background-color: $dorado !important;
+    }
+}
+
+form.form-contacto {
+    input[type=text],
+    input[type=email],
+    textarea {
+        border-radius: 0;
+        border-color: $dorado;
+        color: $dorado;
+        margin: 22px 0;
+    }
+    input[type=text],
+    input[type=email] {
+        height: 45px;
+    }
+     ::-webkit-input-placeholder {
+        /* WebKit, Blink, Edge */
+        color: $dorado;
+        opacity: .5;
+    }
+     :-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: $dorado;
+        opacity: .5;
+    }
+     ::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: $dorado;
+        opacity: .5;
+    }
+     :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: $dorado;
+        opacity: .5;
+    }
+     ::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: $dorado;
+        opacity: .5;
+    }
+     ::placeholder {
+        /* Most modern browsers support this now. */
+        color: $dorado;
+        opacity: .5;
+    }
+}
+
+.btn-dorado {
+    border-radius: 0 !important;
+    padding: 10px 36px !important;
+    background-color: $dorado !important;
+    border-color: $dorado !important;
+    transition: all .7s ease-in-out !important;
+    -moz-transition: all .7s ease-in-out !important;
+    -webkit-transition: all .7s ease-in-out !important;
+    &:hover {
+        background-color: #fff !important;
+        color: $dorado !important;
+    }
+}
+
+.fondo-dos-amenidades {
+    @include fondo-imagen('assets/images/personas-amenidades.png',
+    '');
+}
+
+.fondo-linea-azul {
+    height: 40px;
+    width: 100%;
+    @include fondo-imagen('assets/images/lineas-azules.png',
+    '');
+}
+
+.palmera {
+    height: 167px;
+    @include fondo-imagen('assets/images/palmera.png',
+    '');
+    z-index: 100;
+}
+
+.fondo-line-azul-vertical {
+    @include fondo-imagen('assets/images/lineas-azules.png',
+    '');
+}
+
+.img-yate {
+    z-index: 50;
+    margin-top: -100px;
+    img {
+        width: 100%;
+        margin-left: 15%;
+    }
+}
+
+.imagen-pequena {
+    position: absolute;
+    right: 0;
+    padding-right: 32px;
+    img {
+        width: 220px;
+        border: solid #fff;
+        margin-top: 31px;
+        -webkit-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.75);
+        cursor: pointer;
+    }
+    span.texto-imagen-pequena {
+        display: block;
+        text-align: center;
+        margin-top: 11px;
+        color: #fff;
+        font-size: 1.5em;
+        font-weight: 300;
+    }
+}
+
+.detalles-niveles {
+    background-color: $dorado;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    h5 {
+        margin-top: 10px;
+        font-weight: 300;
+        color: #fff;
+    }
+    table,
+    table thead,
+    table tr,
+    table td,
+    table th,
+    table thead th {
+        border: none;
+    }
+    table th {
+        background-color: $azul-marino;
+        color: #fff;
+        font-weight: 500;
+    }
+    table tr td {
+        color: #fff;
+    }
+}
+
+.texto-extra-quienes-somos {
+    height: 600px;
+}
+
+.texto-extra-departamentos {
+    height: 800px;
+}
+
+.fondo-mujer-departamento {
+    @include fondo-imagen('assets/images/fondo-mujer.png',
+    '');
+}
+
+.imagen-departamento {
+    .img-fondo {
+        width: 100%;
+    }
+}
+
+.palmera-izquierda {
+    position: absolute !important;
+    bottom: 0;
+    left: -58px;
+}
+
+.hero-mapa {
+    @include fondo-imagen('assets/images/mapa.png',
+    '');
+    width: 100%;
+    height: 600px;
+}
+
+.fondo-mujer-alberca {
+    @include fondo-imagen('assets/images/mujer-alberca.png',
+    '');
+    width: 100%;
+    height: 500px;
+}
+
+.collage-ubicacion {
+    .imagen-uno {
+        @include fondo-imagen('assets/images/mujer-cayak-laguna.png',
+        '');
+        width: 100%;
+        height: 300px;
+    }
+    .imagen-dos {
+        @include fondo-imagen('assets/images/camastros.png',
+        '');
+        width: 100%;
+        height: 300px;
+    }
+    .imagen-tres {
+        @include fondo-imagen('assets/images/mujer-parada-yate.png',
+        '');
+        width: 100%;
+        height: 300px;
+    }
+    .imagen-cuatro {
+        @include fondo-imagen('assets/images/alberca-camastro.png',
+        '');
+        width: 100%;
+        height: 300px;
+    }
+    .imagen-cinco {
+        @include fondo-imagen('assets/images/yate-atardecer.png',
+        '');
+        width: 100%;
+        height: 300px;
+    }
+}
+
+.fondo-familia-yate {
+    @include fondo-imagen('assets/images/familia-yate.png',
+    '');
+}
+
+.titulo-info-contacto {
+    display: block;
+    margin-top: 20px;
+    font-size: 23px;
+    font-weight: 400;
+    color: $dorado;
+}
+
+.detalle-info-contacto {
+    color: $dorado;
+    font-size: 1.1em;
+}
+
+.agile__nav-button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    width: 80px;
+}
+
+.agile__nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+
+.agile__nav-button--prev {
+    left: 0;
+}
+
+.agile__nav-button--next {
+    right: 0;
+}
+
+.agile__dots {
+    bottom: 10px;
+    left: 50%;
+    position: absolute;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+.agile__dot {
+    margin: 0 10px;
+}
+
+.agile__dot button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: block;
+    height: 10px;
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    width: 10px;
+}
+
+.agile__dot--current button,
+.agile__dot:hover button {
+    background-color: #fff;
+}
+
+.slide {
+    display: block;
+    height: 500px;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+}
+
+.map-line-image {
+    width: 32%;
+    padding: 3%;
+    background-color: #212A48;
+    transition: all 0.2s ease-in-out;
+    margin-left: 18%;
+    margin-top: 11.9%;
+    opacity: 0.0;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.two-one-line {
+    margin-left: 0!important;
+}
+
+.three-line {
+    padding: 2.8% !important;
+}
+
+.more-one-line {
+    margin-top: 0 !important;
+}
+
+.segundo {
+    padding: 2.8% !important;
+}
+
+.ultimo {
+    padding: 2.3% !important;
+}
+
+.flecha {
+    width: 50px;
+    height: 50px;
+    margin-left: 20%;
+    position: fixed;
+    z-index: 100;
+    background-color: #1c2846;
+    cursor: pointer;
+    transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -webkit-transition: all 0.7s ease;
+    div {
+        position: absolute;
+        margin: 8px 7px 10px 18px;
+        font-size: 24px;
+        i {
+            color: #d6b467;
+        }
+    }
+}
+
+.st0 {
+    fill: #1C2644;
+    opacity: 0.0;
+    transition: all 0.7s ease;
+    -moz-transition: all 0.7s ease;
+    -webkit-transition: all 0.7s ease;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.ocultar-pc {
+    display: none !important;
+}
+
+.menu-movil {
+    background-color: $azul-marino !important;
+    button {
+        border-color: $dorado;
+        i {
+            color: $dorado;
+        }
+    }
+    .collapse {
+        ul {
+            li {
+                text-align: center;
+                margin-top: 10px;
+                a {
+                    color: $dorado;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .opciones {
+        font-size: 17px;
+        line-height: 32px;
+        ul {
+            padding: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    // .menu {
+    //     position: fixed;
+    //     top: auto;
+    //     left: auto;
+    //     display: block;
+    //     width: 100%;
+    //     height: auto;
+    //     transition: none;
+    //     -moz-transition: none;
+    //     -webkit-transition: none;
+    //     -o-transition: none;
+    //     display: none;
+    // }
+}
+
+@media only screen and (max-height: 812px) {
+    h3.titulo.yate {
+        &:before {
+            margin: 40px auto;
+        }
+    }
+    .hero-mapa {
+        height: 348px;
+    }
+    .fondo-mujer-alberca {
+        height: 250px;
+    }
+    .texto-departamentos {
+        text-align: center;
+    }
+    .ocultar-movil {
+        display: none !important;
+    }
+    .ver-movil {
+        display: inline !important;
+    }
+    .ver-movil-menu {
+        display: flex !important;
+    }
+    .img-yate {
+        margin-top: 0;
+        img {
+            margin-left: 0;
+        }
+    }
+    .imagen-pequena.movil {
+        position: relative;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .datos-departamento-movil {
+        .imagen-pequena.movil {
+            background-color: #5476a3;
+        }
+    }
+    .fondo-mujer-departamento {
+        height: 300px;
+    }
+    .texto-departamentos {
+        height: 369px;
+    }
+}
+
+@media only screen and (max-height: 768px) {
+    h3.titulo.yate {
+        &:before {
+            margin: 40px auto;
+        }
+    }
+    .hero-mapa {
+        height: 348px;
+    }
+    .fondo-mujer-alberca {
+        height: 250px;
+    }
+    .texto-departamentos {
+        text-align: center;
+    }
+    .ocultar-movil {
+        display: none !important;
+    }
+    .ver-movil {
+        display: block !important;
+    }
+    .ver-movil-menu {
+        display: flex !important;
+    }
+    .opciones {
+        font-size: 13px;
+        line-height: 22px;
+        ul {
+            padding: 0;
+        }
+    }
+    .fondo-dos-quienes-somos {
+        height: 190px;
+    }
+    .fondo-dos-amenidades {
+        background: url(/img/personas-amenidades.30d11215.png) no-repeat;
+        background-size: cover;
+        height: 346px;
+    }
+    .img-yate {
+        margin-top: 0;
+        img {
+            margin-left: 0;
+        }
+    }
+    .imagen-pequena.movil {
+        position: relative;
+        margin-right: 0;
+        padding-right: 0;
+    }
+    .datos-departamento-movil {
+        background-color: #5476a3;
+    }
+    .fondo-mujer-departamento {
+        height: 300px;
+    }
+    .menu {
+        margin: 0px 0px 0px -381px;
+    }
+    .texto-departamentos {
+        height: 369px;
+    }
+}
